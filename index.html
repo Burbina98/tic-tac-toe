@@ -7,21 +7,32 @@
     <link href="./ticTacToe.css" rel="stylesheet"/>
 </head>
 <body>
+
     <div id="container">
         <h1>Tic-Tac-Toe!</h1>
-
+        <!-- Displays whose turn it is -->
+        <h2 id="playerDis">Player 1 turn. Select a empty space.</h2>
+        
+        <div class="headingSymbols">
+            <img src="./images/red_X.png" class="headingSyms" id="red_X"> </img>
+            <img src="./images/blue_O.png" class="headingSyms" id="blue_O"> </img>
+        </div>
+       
+        <!-- 3x3 grid consisting of 9 spaces each with unique identifiers-->
         <div id="board">
-            <div class="space"></div>
-            <div class="space"></div>
-            <div class="space"></div>
-            <div class="space"></div>
-            <div class="space"></div>
-            <div class="space"></div>
-            <div class="space"></div>
-            <div class="space"></div>
-            <div class="space"></div>
+            <div class="space" id="topL"><img src=" " class = "emptyImg" id="topLImg" ></img></div>
+            <div class="space" id="topM"><img src=" " class = "emptyImg"id="topMImg" ></img></div>
+            <div class="space" id="topR"><img src=" " class = "emptyImg"id="topRImg" ></img></div>
+            <div class="space" id="midL"><img src=" " class = "emptyImg"id="midLImg" ></img></div>
+            <div class="space" id="midM"><img src=" " class = "emptyImg"id="midMImg" ></img></div>
+            <div class="space" id="midR"><img src=" " class = "emptyImg"id="midRImg" ></img></div>
+            <div class="space" id="lowL"><img src=" " class = "emptyImg"id="lowLImg" ></img></div>
+            <div class="space" id="lowM"><img src=" " class = "emptyImg"id="lowMImg" ></img></div>
+            <div class="space" id="lowR"><img src=" " class = "emptyImg"id="lowRImg" ></img></div>
 
         </div>
     </div>
+    
 </body>
+<script src="./ticTacToe.js"></script>
 </html>
