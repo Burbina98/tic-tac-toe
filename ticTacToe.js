@@ -5,32 +5,27 @@ let playerSym = new Image();
 let gameOver = false;
 
 
-console.log(test());
 
-// assigning an event listener to each div in the "spaces" variable then places a player symbol on click.
-    function test(){
-    for (var i = 0; i < spaces.length; i++) {
+
+initializeGame();
+
+
+
+
+
+function initializeGame(){
+        for (var i = 0; i < spaces.length; i++) {
         spaces[i].addEventListener('click', placePlayerSym);
     }
-    return this;
 
 }
-    
 
-
-
-
-
-
-function changePlayer(){
-    if (turn === "player1"){
-        turn = "player2";
-    }else{
-        turn = "player1";
-    }
+function clickCell(){
+    const clicked = this.get
 }
 
-//changing the content of the clicked element
+
+// changing the content of the clicked element
 function placePlayerSym(){
 
     //Checks to see who's turn it is a places the symbol accordingly 
@@ -99,5 +94,14 @@ function placePlayerSym(){
         }
     }
 }
+
+function changePlayer(){
+    if (turn === "player1"){
+        turn = "player2";
+    }else{
+        turn = "player1";
+    }
+}
+
 
 
