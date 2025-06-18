@@ -1,107 +1,76 @@
-let turn = "player1";
+let currentPlayer = "player 1";
 let spaces = document.getElementsByClassName("space");
-let emptyImgs = document.getElementsByClassName("emptyImg")
-let playerSym = new Image();
-let gameOver = false;
+let running = false;
+let player1Sym =  document.getElementById("player1Sym").innerHTML;
+
+let winConditions = [
+    [0, 1, 2],
+    [3, 4, 5],
+    [6, 7, 8],
+    [0, 3, 6],
+    [1, 4, 7],
+    [2, 5, 8],
+    [0, 4, 8],
+    [2, 4, 6]
+];
 
 
-
-
+//starts the game
 initializeGame();
 
 
-
-
-
+//Ths function is the first to run every time the game begins. 
 function initializeGame(){
-        for (var i = 0; i < spaces.length; i++) {
-        spaces[i].addEventListener('click', placePlayerSym);
+    running = true;
+    displayPlayerMove();
+
+    for (var i = 0; i < spaces.length; i++) {
+        spaces[i].addEventListener('click', clickCell);
     }
 
+}
+
+//Displays whose turn it is on the screen.
+function displayPlayerMove(){
+    document.getElementById("playerDis").innerHTML = currentPlayer + "'s turn. Select an empty space.";
 }
 
 function clickCell(){
-    const clicked = this.get
+    const clicked = this.getAttribute("cellIndex");
+     
+    if (spaces[clicked].innerHTML != ""){
+        return;
+    } 
+
+    placePlayerSym(this, clicked);
+    checkWinner();
 }
 
+/**
+ * Trying to bring the styles along with the content.
+ */
 
 // changing the content of the clicked element
-function placePlayerSym(){
-
-    //Checks to see who's turn it is a places the symbol accordingly 
-    if(turn === "player1"){
-        playerSym = document.getElementById("red_X").src;
-
-        if(this === document.getElementById("topL")){
-            document.getElementById("topLImg").src = playerSym;
-            document.getElementById("topLImg").style.display = "block";
-        }else if(this === document.getElementById("topM")){
-             document.getElementById("topMImg").src = playerSym;
-            document.getElementById("topMImg").style.display = "block";
-        }else if(this === document.getElementById("topR")){
-             document.getElementById("topRImg").src = playerSym;
-            document.getElementById("topRImg").style.display = "block";
-        }else if(this === document.getElementById("midL")){
-             document.getElementById("midLImg").src = playerSym;
-            document.getElementById("midLImg").style.display = "block";
-        }else if(this === document.getElementById("midM")){
-             document.getElementById("midMImg").src = playerSym;
-            document.getElementById("midMImg").style.display = "block";
-        }else if(this === document.getElementById("midR")){
-             document.getElementById("midRImg").src = playerSym;
-            document.getElementById("midRImg").style.display = "block";
-        }else if(this === document.getElementById("lowL")){
-             document.getElementById("lowLImg").src = playerSym;
-            document.getElementById("lowLImg").style.display = "block";
-        }else if(this === document.getElementById("lowM")){
-             document.getElementById("lowMImg").src = playerSym;
-            document.getElementById("lowMImg").style.display = "block";
-        }else if(this === document.getElementById("lowR")){
-             document.getElementById("lowRImg").src = playerSym;
-            document.getElementById("lowRImg").style.display = "block";
-        }
+function placePlayerSym(cell, index){
+    if (currentPlayer === "player 1"){
+        cell.innerHTML = document.getElementById("player1Sym").innerHTML;
     }else{
-        
-        playerSym = document.getElementById("blue_O").src;
-
-        if(this === document.getElementById("topL")){
-            document.getElementById("topLImg").src = playerSym;
-            document.getElementById("topLImg").style.display = "block";
-        }else if(this === document.getElementById("topM")){
-             document.getElementById("topMImg").src = playerSym;
-            document.getElementById("topMImg").style.display = "block";
-        }else if(this === document.getElementById("topR")){
-             document.getElementById("topRImg").src = playerSym;
-            document.getElementById("topRImg").style.display = "block";
-        }else if(this === document.getElementById("midL")){
-             document.getElementById("midLImg").src = playerSym;
-            document.getElementById("midLImg").style.display = "block";
-        }else if(this === document.getElementById("midM")){
-             document.getElementById("midMImg").src = playerSym;
-            document.getElementById("midMImg").style.display = "block";
-        }else if(this === document.getElementById("midR")){
-             document.getElementById("midRImg").src = playerSym;
-            document.getElementById("midRImg").style.display = "block";
-        }else if(this === document.getElementById("lowL")){
-             document.getElementById("lowLImg").src = playerSym;
-            document.getElementById("lowLImg").style.display = "block";
-        }else if(this === document.getElementById("lowM")){
-             document.getElementById("lowMImg").src = playerSym;
-            document.getElementById("lowMImg").style.display = "block";
-        }else if(this === document.getElementById("lowR")){
-             document.getElementById("lowRImg").src = playerSym;
-            document.getElementById("lowRImg").style.display = "block";
-        }
+        cell.innerHTML = "O";
     }
+    
+    changePlayer();
+    displayPlayerMove();
+
+
+   
 }
 
 function changePlayer(){
-    if (turn === "player1"){
-        turn = "player2";
+    if (currentPlayer === "player 1"){
+        currentPlayer = "player 2";
     }else{
-        turn = "player1";
+        currentPlayer = "player 1";
     }
 }
-
 
 
