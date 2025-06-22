@@ -16,17 +16,23 @@
 
 #player1Sym{
     color: red;
+     font-family: "Huninn", sans-serif;
+    font-weight: 1000;
+    font-style: normal;
 }
 
 #player2Sym{
     color: blue;
+    font-family: "Huninn", sans-serif;
+    font-weight: 1000;
+    font-style: normal;
 }
 
 .space{
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 10px solid ;
+    border: 10px solid black ;
     font-size: 75px;
 }
 
@@ -42,10 +48,15 @@
     display: grid;
     grid-template-rows: repeat(3, 130px);
     grid-template-columns: repeat(3, 130px);
-    
+    justify-content: center;
 }
 
-
+#restartBtn{
+    margin-top: 20px;
+    height: 40px;
+    border-radius: 15%;
+    color: green;
+}
 /* removes outer border of outside spaces. */
 .space-0, .space-1, .space-2{
     border-top: none;
