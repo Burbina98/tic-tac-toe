@@ -22,5 +22,4 @@ This is a simple but fully functioning web based application developed with html
 ## Possible Future Improvents 📌
 - Add basic AI for a single-player mode.
 - Improve responsiveness.
-- Make more visually appealing.
-    -Especially after declaring a winner feel more rewarding. 
+- Make more visually appealing. (Especially after declaring a winner to feel more rewarding) 
